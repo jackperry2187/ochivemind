@@ -76,6 +76,17 @@ export const EventsPage: React.FC = () => {
         setEventType(localEventType);
     }, [eventType, setEventType]);
 
+    const onClickOther = useCallback((event: React.MouseEvent) => {
+        event.preventDefault();
+        const localEventType = new Set(eventType);
+        if(eventType.has('OTHER')) {
+            localEventType.delete('OTHER');
+        } else {
+            localEventType.add('OTHER');
+        }
+        setEventType(localEventType);
+    }, [eventType, setEventType]);
+
     const sortByDate = useCallback((event: React.MouseEvent) => {
         event.preventDefault();
         if (sortBy === 'dateDesc') {
@@ -149,9 +160,9 @@ export const EventsPage: React.FC = () => {
     const sortedEvents = useMemo(() => {
         switch (sortBy) {
             case 'dateDesc':
-                return [...filteredEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+                return [...filteredEvents].sort((a, b) => a.date.localeCompare(b.format));
             case 'dateAsc':
-                return [...filteredEvents].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+                return [...filteredEvents].sort((a, b) => b.date.localeCompare(a.format));
             case 'formatDesc':
                 return [...filteredEvents].sort((a, b) => a.format.localeCompare(b.format));
             case 'formatAsc':
@@ -174,8 +185,8 @@ export const EventsPage: React.FC = () => {
     }, [filteredEvents, sortBy]);
 
     return (
-        <div className='m-5'>
-            <Card className="bg-secondary text-white text-center m-5" border="white">
+        <div className='m-2'>
+            <Card className="bg-secondary text-white text-center m-2 mt-5" border="white">
                 <Card.Body>
                     <div>
                         <Row>
@@ -190,13 +201,13 @@ export const EventsPage: React.FC = () => {
                                 <Button variant={eventType.has('RCQ') ? 'primary' : 'dark'} className='m-2' onClick={onClickRCQ}>RCQ</Button>
                                 <Button variant={eventType.has('WEEKLY') ? 'primary' : 'dark'} className='m-2' onClick={onClickWeekly}>Weekly</Button>
                                 <Button variant={eventType.has('MTGO') ? 'primary' : 'dark'} className='m-2' onClick={onClickMTGO}>MTGO</Button>
+                                <Button variant={eventType.has('OTHER') ? 'primary' : 'dark'} className='m-2' onClick={onClickOther}>OTHER</Button>
                             </Col>
                         </Row>
-                        
                     </div>
                 </Card.Body>
             </Card>
-            <Card className="bg-secondary text-white text-center m-5" border="white">
+            <Card className="bg-secondary text-white text-center m-2 mt-5" border="white">
                 <Card.Body>
                     <Card.Title>Events</Card.Title>
                     {sortedEvents.length > 0 && (
@@ -208,6 +219,9 @@ export const EventsPage: React.FC = () => {
                                             Date
                                             {sortBy === 'dateDesc' && <span className="float-right">&#x25BC;</span>}
                                             {sortBy === 'dateAsc' && <span className="float-right">&#x25B2;</span>}
+                                        </th>
+                                        <th>
+                                            Time
                                         </th>
                                         <th onClick={sortByFormat} className='text-decoration-underline'>
                                             Format
@@ -235,6 +249,7 @@ export const EventsPage: React.FC = () => {
                                     {sortedEvents.map((event, index) => (
                                         <tr key={index}>
                                             <td>{event.date}</td>
+                                            <td>{event.time}</td>
                                             <td>{event.format}</td>
                                             <td>{event.type}</td>
                                             <td>{event.location}</td>
