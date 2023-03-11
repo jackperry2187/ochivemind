@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Button, Card, Col, Row, Table } from 'react-bootstrap';
 import { EventFormat, EventType, exampleEvents } from '../events';
+import '../styles/EventsPage.css'
 
 type SortBy = 'dateDesc' | 'dateAsc' | 'formatDesc' | 'formatAsc' | 'typeDesc' | 'typeAsc' | 'locationDesc' | 'locationAsc' | 'nameDesc' | 'nameAsc';
 
@@ -185,7 +186,7 @@ export const EventsPage: React.FC = () => {
     }, [filteredEvents, sortBy]);
 
     return (
-        <div className='m-2'>
+        <div className='m-2 bg-logo'>
             <Card className="bg-secondary text-white text-center m-2 mt-5" border="white">
                 <Card.Body>
                     <div>

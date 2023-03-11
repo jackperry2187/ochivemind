@@ -1,0 +1,7 @@
+.bg-secondary {
+    opacity: 0.98;
+}
+
+.bg-secondary:hover {
+    opacity: 1;
+}
