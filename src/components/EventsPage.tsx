@@ -440,7 +440,7 @@ export const EventsPage: React.FC = () => {
                                             <td>{event.format}</td>
                                             <td>{event.type}</td>
                                             <td>{event.location}</td>
-                                            <td><a href={event.link} target='_blank' rel='noreferrer'>{event.name}</a></td>
+                                            <td><a href={event.link} target='_blank' rel='noreferrer' className='link-light'>{event.name}</a></td>
                                         </tr>
                                     ))}
                                 </tbody>
