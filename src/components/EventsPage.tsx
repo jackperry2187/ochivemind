@@ -198,6 +198,9 @@ export const EventsPage: React.FC = () => {
                                 <Button variant={eventFormat.has('Pauper') ? 'primary' : 'dark'} className='m-2' onClick={onClickPauper}>Pauper</Button>
                             </Col>
                             <Col>
+                                <img src={require('./logo.png')} alt='logo' />
+                            </Col>
+                            <Col>
                                 <h5>Event Type</h5>
                                 <Button variant={eventType.has('RCQ') ? 'primary' : 'dark'} className='m-2' onClick={onClickRCQ}>RCQ</Button>
                                 <Button variant={eventType.has('WEEKLY') ? 'primary' : 'dark'} className='m-2' onClick={onClickWeekly}>Weekly</Button>
