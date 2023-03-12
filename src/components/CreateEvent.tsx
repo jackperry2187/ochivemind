@@ -1,6 +1,6 @@
 import { Button, Card, Col, Row } from "react-bootstrap"
 import React, { useCallback, useEffect, useState } from "react"
-import { EventFormat, EventType } from "../events";
+import { EventFormat, EventType } from "../events/types";
 
 export type Day = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 
@@ -21,6 +21,7 @@ export const CreateEvent: React.FC = () => {
 
     const onClickRCQ = useCallback(() => setType('RCQ'), [setType]);
     const onClickMTGO = useCallback(() => setType('MTGO'), [setType]);
+    const onClickMTGOWeekly = useCallback(() => setType('MTGO WEEKLY'), [setType]);
     const onClickWEEKLY = useCallback(() => setType('WEEKLY'), [setType]);
     const onClickOTHER = useCallback(() => setType('OTHER'), [setType]);
 
@@ -59,7 +60,7 @@ export const CreateEvent: React.FC = () => {
         const result = `{
             format: '${format}',
             type: '${type}',
-            date: '${type === 'WEEKLY' ? day : date}',
+            date: '${(type === 'WEEKLY' || type === 'MTGO WEEKLY') ? day : date}',
             time: '${time}',
             location: '${location}',
             name: '${name}',
@@ -88,13 +89,14 @@ export const CreateEvent: React.FC = () => {
                         <Col>
                             <input type='radio' name='type' value='RCQ' checked={type === 'RCQ'} onChange={onClickRCQ} /> RCQ
                             <input type='radio' name='type' value='MTGO' checked={type === 'MTGO'} onChange={onClickMTGO} /> MTGO
+                            <input type='radio' name='type' value='MTGO WEEKLY' checked={type === 'MTGO WEEKLY'} onChange={onClickMTGOWeekly} /> MTGO WEEKLY
                             <input type='radio' name='type' value='WEEKLY' checked={type === 'WEEKLY'} onChange={onClickWEEKLY} /> WEEKLY
                             <input type='radio' name='type' value='OTHER' checked={type === 'OTHER'} onChange={onClickOTHER} /> OTHER
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            {type === 'WEEKLY' && (
+                            {(type === 'WEEKLY' || type === 'MTGO WEEKLY') && (
                                 <>
                                     <input type='radio' name='day' value='Monday' checked={day === 'Monday'} onChange={onClickMonday} /> Monday
                                     <input type='radio' name='day' value='Tuesday' checked={day === 'Tuesday'} onChange={onClickTuesday} /> Tuesday
@@ -105,7 +107,7 @@ export const CreateEvent: React.FC = () => {
                                     <input type='radio' name='day' value='Sunday' checked={day === 'Sunday'} onChange={onClickSunday} /> Sunday
                                 </>
                             )}
-                            {type !== 'WEEKLY' && (
+                            {(type !== 'WEEKLY' && type !== 'MTGO WEEKLY') && (
                                 <>
                                     <input type="date" onChange={onChangeDate} />
                                 </>

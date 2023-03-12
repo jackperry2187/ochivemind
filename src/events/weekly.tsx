@@ -1,17 +1,6 @@
-export type EventFormat = 'Pioneer' | 'Modern' | 'Pauper';
-export type EventType = 'RCQ' | 'MTGO' | 'WEEKLY' | 'OTHER';
+import { Event } from './types';
 
-export type Event = {
-    format: EventFormat;
-    type: EventType;
-    date: string;
-    time: string;
-    location: string;
-    name: string;
-    link: string;
-}
-
-export const exampleEvents: Event[] = [
+export const weeklyEvents: Event[] = [
     {
         format: 'Modern',
         type: 'WEEKLY',
@@ -66,24 +55,6 @@ export const exampleEvents: Event[] = [
         name: 'Wednesday Modern @ The Keep',
         link: 'https://www.thekeephobby.com/events',
     },
-    {
-        format: 'Modern',
-        type: 'RCQ',
-        date: '2023-03-18',
-        time: '12:00pm',
-        location: 'The Bearded Dragon Games',
-        name: '2-Slot Modern Regional Championship Qualifier',
-        link: 'https://thebeardeddragongames.crystalcommerce.com/Magic%20Events',
-    },
-    {
-        format: 'Modern',
-        type: 'RCQ',
-        date: '2023-03-25',
-        time: '12:00pm',
-        location: 'Alternate Universes - Holmes',
-        name: '2-Slot Modern Regional Championship Qualifier',
-        link: 'https://alternateu.com/special-events/',
-    }
 ]
 
         
