@@ -4,11 +4,11 @@ import { Event } from "../events/types";
 
 type SortBy = 'dateDesc' | 'dateAsc' | 'formatDesc' | 'formatAsc' | 'typeDesc' | 'typeAsc' | 'locationDesc' | 'locationAsc' | 'nameDesc' | 'nameAsc';
 
-type EventsTableProps = {
+type EventsListProps = {
     events: Event[];
 }
 
-export const EventsTable: React.FC<EventsTableProps> = ({ events }) => {
+export const EventsList: React.FC<EventsListProps> = ({ events }) => {
     const [sortBy, setSortBy] = React.useState<SortBy | undefined>('dateDesc');
 
     const sortByDate = useCallback((event: React.MouseEvent) => {

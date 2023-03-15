@@ -1,0 +1,26 @@
+.bg-gone {
+    color: white;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+
+.bg-gone:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+td.td-calendar {
+    min-width: 13vw;
+    height: 20vh;
+}
+
+td.today {
+    background-color: rgb(100, 100, 100);
+}
+
+td.today:hover {
+    background-color: rgb(110, 110, 110) !important;
+}
+
+td:hover.td-calendar {
+    background-color: #323539;
+}
