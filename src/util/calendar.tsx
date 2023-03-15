@@ -101,7 +101,7 @@ export const convertTimeTo24Hour = (time: string) : string => {
         }
         return `${parseInt(hours.replace('pm', '')) + 12}:${minutes}`;
     }
-    return `${hours}:${minutes}`;
+    return `${hours === '12' ? '00' : hours}:${minutes}`;
 }
 
 export const compareTimes = (time1: string, time2: string) : number => {
