@@ -292,7 +292,7 @@ export const EventFilters: React.FC<EventFiltersProps> = ({ events, onFilterChan
                     <Button variant={day.has('Sunday') ? 'primary' : 'dark'} className='m-2' onClick={onClickSunday}>Sunday</Button>
                 </Col>
                 <Col>
-                    <img src={require('./logo.png')} alt='logo' />
+                    <img src={require('./logo_maxres.png')} alt='logo' />
                     <hr />
                     <Button variant='dark' className='m-2' onClick={onClickReset}>Reset Filters</Button>
                 </Col>
