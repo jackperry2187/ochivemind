@@ -40,15 +40,6 @@ export const rcqEvents: Event[] = [
     {
         format: 'Pioneer',
         type: 'RCQ',
-        date: '2023-04-01',
-        time: '12:00pm',
-        location: 'New World Manga',
-        name: '2-Slot Pioneer Regional Championship Qualifier',
-        link: 'https://locator.wizards.com/events/5009225/false',
-    },
-    {
-        format: 'Pioneer',
-        type: 'RCQ',
         date: '2023-04-02',
         time: '1:00pm',
         location: 'Saga Concepts',
