@@ -20,12 +20,12 @@ export const weeklyEvents: Event[] = [
         link: 'https://www.facebook.com/EastCoastGamersNJ/',
     },
     {
-        format: 'Pioneer',
+        format: 'Modern',
         type: 'WEEKLY',
         date: 'Tuesday',
         time: '6:30pm',
         location: 'Nova Games',
-        name: 'Tuesday Pioneer @ Nova Games',
+        name: 'Tuesday Modern @ Nova Games',
         link: 'https://www.facebook.com/NovaGamesBrick/',
     },
     {
