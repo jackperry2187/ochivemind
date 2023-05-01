@@ -61,7 +61,7 @@ export const rcqEvents: Event[] = [
         date: '2023-07-08',
         time: '11:00am',
         location: 'Nova Games',
-        name: '2-Slot Pioneer Regional Championship Qualifier',
+        name: '1-Slot Pioneer Regional Championship Qualifier',
         link: 'https://locator.wizards.com/events/5166139/false',
     },
     {
